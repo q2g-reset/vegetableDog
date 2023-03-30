@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        数组的结构赋值
+        模式匹配 索引排序取值
+        强调模式匹配的基础是右边的数值类型应该是可遍历的结构
+        左边申明变量    对应右边赋值  没有对应值就赋值undefined
+
+        */
+      //    1.数组的解构赋值
+      let [a, b, c] = [1, 2, 3];
+      console.log("a", a);
+      console.log("b", b);
+      console.log("c", c);
+      //    2.数组的解构赋值
+      let [foo, [[bar], baz]] = [1, [[2], 3]];
+      console.log("foo", foo);
+      console.log("bar", bar);
+      console.log("baz", baz);
+      //    3.数组的解构赋值
+      /* 注，...arr   写在前面不可以，写在后面可以
+       */
+      //    let [ ...arr,third] = ["foo", "bar", "baz"];
+      //   console.log("arr", arr);
+      let [first, ...arr] = ["foo", "bar", "baz"];
+      console.log("first", first);
+      console.log("arr", arr);
+
+      /* 
+        可以设置默认值
+        如果可以赋值，且赋值为undefined 设置默认值，就是默认值  未设置默认值就是undefined
+        1.强调默认值的取值条件 必须是赋值为全等undefined才可以 取默认值
+        2.如果默认值是表达式的话，是惰性调用的，只有赋值为undefined才会取默认值，所以表达式只会在赋值为undefined的时候执行一次，感觉可以用在封装提醒上
+        3.结构赋值是按顺序进行的，所以，可以将默认值设为前面已经声明赋值的变量，但不可以设置为后面未声明的变量
+      */
+    </script>
+  </body>
+</html>

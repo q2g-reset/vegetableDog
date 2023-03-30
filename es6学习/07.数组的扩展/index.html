@@ -1,0 +1,50 @@
+<!--
+ * @Author: qianergou 1599164493@qq.com
+ * @Date: 2023-03-28 17:09:12
+ * @LastEditors: qianergou 1599164493@qq.com
+ * @LastEditTime: 2023-03-30 10:57:03
+ * @FilePath: \es6学习\07.数组的扩展\index.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            数组的扩展
+            1.扩展运算符
+            2.Array.from()
+            3.Array.of()
+            4.copyWithin()
+            5.find()和findIndex()
+            6.fill()
+            7.entries()，keys()和values()
+            8.数组实例的includes()
+            9.数组的空位
+        */
+      //    1.扩展运算符
+      //        1.1扩展运算符可以将任何可以遍历的结构 转换为逗号分隔的参数序列 数组,伪数组,字符串,Set,Map
+      console.log(...[1, 2, 3]);
+      console.log(..."hello");
+      console.log(...{ 0: 1, 1: 2, length: 2 });
+      console.log(...new Set([1, 2, 3]));
+      //        1.2应用
+      //            1.2.1复制数组
+      //                   这里的通过扩展运算符可以浅拷贝数组，但是如果数组中有应用数据类型的话，那么就会出现浅拷贝的问题
+      //            1.2.2合并数组
+      //                   数组方法concat和扩展运算符的可以替用，但是感觉扩展运算符更简单
+      //            1.2.3与解构赋值结合
+      //                   这个的用法，就还是函数的参数那里结合使用更多点
+      //            1.2.4字符串
+      //                   扩展运算符可以将字符串转换为真正的数组(核心还是，字符串可以转为数组，可遍历结构)
+      //                   可以将返回含有unicode字符串的长度
+      //            1.2.5实现了Iterator接口的对象
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            参数默认值
+            1.参数默认值是惰性求值的，只有在参数没有传值的时候才会取默认值
+        */
+      /*
+            和解构赋值连用
+       */
+      //   只用解构赋值
+      function f({ y = 5, x = 1 }) {}
+      f({ x: 1 });
+      f({ x: 1, y: 2 });
+      f({});
+      //    报错
+      //   undefined.y 会先报错 那y的声明赋值当然也就不存在了
+      //   f();
+
+      //   用结构赋值和参数默认值 连用
+
+      function f1({ y = 5, x = 1 } = { x: 4 }) {}
+      f1();
+      //   步骤1 外接调用 未传参 undefined
+      //   步骤2 传参为undefined 传入参数默认值{x:4}
+      //   步骤3 解构赋值 x值为4，y值为undefined 所以y取默认值
+      f1({ x: 1, y: 2 });
+      //   步骤1 外接调用 传参 { x: 1, y: 2 }
+      //   步骤2 解构赋值 x，y 值为1，2 所以x，y取传入值
+      f1({});
+      //   步骤1 外接调用 传参 {}
+      //   步骤2 解构赋值 x，y 值为undefined，undefined 所以x取默认值，y取默认值
+
+      //   函数参数默认值尽量放到尾部去写，这样可以避免一些不必要的错误(函数调用前面参数不能省略，后面参数可以省略)
+      //   函数的length属性是指函数的形参个数，不包括设置默认值的形参---这个属性是在设置默认参数后失真
+      //   作用域 在函数执行前初始化时，设置了默认参数的形参会形成一个单独的作用域，这个作用域中的变量是不能在函数体内部被访问的，但是可以访问函数体外部的变量
+      /*
+            rest参数
+            1.用于获取函数的多余参数，这样就不需要使用arguments对象了
+            2.rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中
+            3.函数的length属性，不包括rest参数
+             强调，放在参数尾部，否则会报错
+             因为rest参数就是将未的声明的参数，全部放在一个数组中，所以只能放在最后
+      */
+      function restfn(a, b, ...values) {
+        console.log("a: ", a);
+        console.log("b: ", b);
+        console.log(values);
+      }
+      restfn("restfn", 1, 2, 3, 4, 5);
+      //  name属性 (延后学习)
+      // Function.prototype.toString()
+      //  会打印函数体内部注释部分
+      //catch参数可以省略
+    </script>
+  </body>
+</html>

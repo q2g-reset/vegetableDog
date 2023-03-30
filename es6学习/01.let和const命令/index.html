@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        作用域
+        全局作用域
+        函数作用域 
+        块级作用域
+
+        作用域访问变量可以提升访问，但是不可以提升赋值
+        
+        */
+
+      // let命令
+      // let命令用来声明变量，用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。
+      // for (let i = 0; i < 10; i++) {
+      //   console.log(i);
+      // }
+      // console.log(i); // i is not defined
+
+      // for (let i = 0; i < 3; i++) {
+      //   let i = "abc";
+      //   console.log(i);
+      // }
+      // 上面代码正确运行，输出了3次abc。这表明函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用域。
+
+      // var的情况
+      // var tmp = new Date();
+      // function f() {
+      //   console.log(tmp);
+      //   if (false) {
+      //     var tmp = "hello world";
+      //   }
+      // }
+      // f(); // undefined
+
+      // let的情况
+      // var tmp = new Date();
+      // function f() {
+      //   console.log(tmp);
+      //   if (false) {
+      //     let tmp = "hello world";
+      //   }
+      // }
+      // f(); // Uncaught ReferenceError: Cannot access 'tmp' before initialization
+
+      // var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。
+      // 为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。
+
+      // var的情况
+      // var a = 1;
+      // var a = 2;
+      // console.log(a); // 2
+
+      // let的情况
+      // let a = 1;
+      // let a = 2; // Uncaught Syntax
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.加强字符串Unicode表示方法(延后学习)
+      //   Json.stringigy 的优化
+      console.log("字符串增加码点", "\u0061");
+      console.log('"\uD842\uDFB7": ', "\uD842\uDFB7");
+      // "𠮷"
+      console.log('"\u20BB7": ', "\u20BB7");
+      // \u20BB=""  =>  ""+7=7
+      console.log('"\u{20BB7}": ', "\u{20BB7}");
+      // "𠮷"
+
+      // 2.添加遍历器接口
+      //   字符串可以被for...of
+      let arrOfstring = [];
+      for (let item of "myString") {
+        arrOfstring.push(item);
+      }
+      console.log("arrOfstring: ", arrOfstring);
+
+      // 3.模板字符串
+      //   `这里面会保留字符串的结构`
+      //   可以在模板字符串中引入表达式
+      //   标签模板 待延后学习
+    </script>
+  </body>
+</html>

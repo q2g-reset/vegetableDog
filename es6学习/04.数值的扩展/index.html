@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            1.二进制和八进制表示法(延后学习)
+        */
+      /*
+            2.数值分隔符(_)
+                不能放在数值的最前面（leading）或最后面（trailing）。_1000.1  1000.1_ 
+                不能两个或两个以上的分隔符连在一起。 100___0.1(3个_)
+                小数点的前后不能有分隔符。  1000_.1 1000._1
+                科学计数法里面，表示指数的e或E前后不能有分隔符。 1e_1 1e1_  其中(e1代表了科学计数法的进制，分开后js无法解析)
+                0b、0B、0o、0O、0x、0X不能接分隔符。 0_b 0b_1 0_o 0o_1 0_x 0x_1 其实就是分开无法解析(进制的表述)
+       */
+      /* 
+            3.Number.isFinite(),Number.isNaN()
+                Number.isFinite()用来检查一个数值是否为有限的（finite），即不是Infinity。
+                Number.isNaN()用来检查一个值是否为NaN。
+                这两个方法与传统的全局方法isFinite()和isNaN()的区别在于：
+                传统方法先调用Number()将非数值的值转为数值，再进行判断，而这两个新方法只对数值有效
+                Number.isFinite()对于非数值一律返回false
+                Number.isNaN()只有对于NaN才返回true，非NaN一律返回false。
+        */
+      /* 
+            4.Number.parseInt(),Number.parseFloat()
+                ES6将全局方法parseInt()和parseFloat()，移槽到Number对象上面，行为完全保持不变。
+                Number.parseInt() === parseInt
+                Number.parseFloat() === parseFloat
+       */
+      /* 
+         5.Number.isInteger()
+            Number.isInteger()用来判断一个值是否为整数。
+            对于非数值，Number.isInteger()一律返回false。
+            如果参数不是数值，Number.isInteger()内部使用Number方法将其先转为数值。
+            由于JavaScript内部，整数和浮点数采用的是同样的储存方法，所以3和3.0被视为同一个值。
+            Number.isInteger()对于这两个值都返回true。
+            如果参数是一个无法截取整数的数值，比如NaN、Infinity和-Infinity，Number.isInteger()返回false。
+            JS浮点数的储存进度是53个二进制位数 所以精度超过52个二进制位的浮点数值，会被舍去，导致计算失误
+
+       */
+      /* 
+        6.Number.EPSILON 浮点数可以接受的最大误差范围  2.220446049250313e-16
+            Number.EPSILON实际上是 JavaScript 能够表示的最小精度。误差如果小于这个值，就可以认为已经没有意义了，即不存在误差了。
+            误差小于Number.EPSILON的时候，可以认为已经没有误差了
+      */
+      /* 
+        7.Number.isSageInteger()
+            Number.isSafeInteger()用来判断一个整数是否落在这个范围之内。
+            Number.MAX_SAFE_INTEGER === Math.pow(2, 53) - 1
+            Number.MIN_SAFE_INTEGER === -Number.MAX_SAFE_INTEGER
+            Number.isSafeInteger()则是用来判断一个整数是否落在这个范围之内。
+            如果不是整数，Number.isSafeInteger()一律返回false。
+            如果超出了范围，Number.isSafeInteger()也会返回false。
+     */
+    </script>
+  </body>
+</html>

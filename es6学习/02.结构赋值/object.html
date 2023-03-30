@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        对象的结构赋值
+          通过结构相同--所在层级(对象的层级有没有更专业的叫法)和对象的变量名
+          匹配机制
+          先匹配同名属性，将右侧的值赋值给左侧的变量名
+          let {匹配属性1：声明变量1, 匹配属性1：声明变量1 } = { 匹配属性1: 值1, 匹配属性2: 值2 };
+          如果结构对应，找不到相应的匹配模式 匹配失败 返回 该变量为undefined
+          嵌套结构，匹配子对象的父属性，直接报错
+        */
+      //  正常匹配
+      let { foo: newFoo, bar: newBar } = { foo: "aaa", bar: "bbb" };
+      console.log("newFoo", newFoo);
+      console.log("newBar", newBar);
+      //  简写匹配
+      let { foo, bar } = { foo: "aaa", bar: "bbb" };
+      console.log("foo", foo);
+      console.log("bar", bar);
+      //  匹配失败
+      let { baz } = { foo: "aaa", bar: "bbb" };
+      console.log("baz", baz);
+      //   匹配失败
+      let {
+        foo1: { bar1 },
+      } = { foo1: "aaa", bar1: "bbb" };
+      //   1.foo1匹配成功
+      //    2.foo1匹配  的值是一个对象，实际是字符串转的对象，所以，字符串转的对象中没有bar1属性，所以匹配失败 返回bar1为undefined
+      console.log("bar1: ", bar1);
+      let {
+        foo2: { bar2 },
+      } = { foo2: { bar2: "aaa" }, bar2: "bbb" };
+      console.log("bar2: ", bar2);
+      //   匹配报错
+      let {
+        foo3,
+        foo3: { bar3 },
+      } = { foo1: "aaa", foo2: "bbb" };
+      console.log("foo3: ", foo3);
+      console.log("bar3: ", bar3);
+      // foo3 匹配模式下 得到的值是undefined
+      // 而undefined.bar3  或者说 undefined没有可读属性 所以报错
+
+      /* 
+        对象的默认值设置
+            不能报错
+            要全等于undefined 才会设置为默认值，或者调用默认值的表达式一次，获取表达式的返回值。
+      */
+      /* 
+     注意，
+     1.将已经声明的值结构赋值，要加括号将结构赋值语句包起来，避免js引擎解析成了一个代码块，从而语法报错
+     2.数组可以被 理解成 索引为key item为值的特殊键值对像，也可以被对象解构赋值
+     */
+    </script>
+  </body>
+</html>
